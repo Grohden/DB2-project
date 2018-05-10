@@ -1,5 +1,5 @@
 # DB2-project
-University Database 2 II class project
+University Database II class project
 
 ## Description
 
