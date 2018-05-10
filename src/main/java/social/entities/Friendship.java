@@ -10,10 +10,10 @@ public class Friendship {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private long id;
 
-    @OneToOne
+    @ManyToOne
     private Person friend;
 
-    @OneToOne
+    @ManyToOne
     private Person friendship;
 
     @Temporal(TemporalType.DATE)
