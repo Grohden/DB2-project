@@ -1,4 +1,5 @@
 # DB2-project
+
 University Database II class project
 
 ## Description
@@ -8,6 +9,7 @@ This is a simple server with spring boot, it maps a relation between peoples and
 ## Setup
 
 This project uses `postgre` as the default DB, to setup it you:
+
 * Should have a database called `rede-social`
 * Should edit the credentials at `src\main\resources\application.properties` to the one your postgre uses
 
