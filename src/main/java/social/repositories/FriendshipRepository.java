@@ -22,8 +22,9 @@ public interface FriendshipRepository extends CrudRepository<Friendship, Long> {
     @Query("SELECT DISTINCT f FROM Friendship f WHERE (:friendId IN (f.friend.id, f.friendship.id) AND :friendshipId IN (f.friend.id, f.friendship.id))")
     Friendship findFriendshipByIds(@Param("friendId") Long friendId, @Param("friendshipId") Long friendshipId);
 
+    //FIXME: find out why delete mapping doesnt work here
     @Transactional
     @Modifying
-    @Query("DELETE FROM Friendship f WHERE (:friendId IN (f.friend.id, f.friendship.id) AND :friendshipId IN (f.friend.id, f.friendship.id))")
-    void deleteFriendshipByIds(@Param("friendId") Long friendId, @Param("friendshipId") Long friendshipId);
+    @Query("DELETE FROM Friendship f WHERE :friendId IN (f.friend.id, f.friendship.id) AND :friendshipId IN (f.friend.id, f.friendship.id)")
+    Integer deleteFriendshipByIds(@Param("friendId") Long friendId, @Param("friendshipId") Long friendshipId);
 }
