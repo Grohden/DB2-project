@@ -10,10 +10,14 @@ public class Friendship {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private long id;
 
-    @ManyToOne
+    @OneToOne
+    @JoinColumn(name = "friend_id")
+//    @NotNull
     private Person friend;
 
-    @ManyToOne
+    @OneToOne
+    @JoinColumn(name = "friendship_id")
+//    @NotNull
     private Person friendship;
 
     @Temporal(TemporalType.DATE)
@@ -25,6 +29,14 @@ public class Friendship {
         this.friend = friend;
         this.friendship = friendship;
         this.friendShipDate = friendShipDate;
+    }
+
+    public long getId() {
+        return id;
+    }
+
+    public void setId(long id) {
+        this.id = id;
     }
 
     public Person getFriend() {

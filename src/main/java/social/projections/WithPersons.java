@@ -9,9 +9,11 @@ import java.util.Calendar;
 @Projection(name = "withPersons", types = {Friendship.class})
 public interface WithPersons {
 
-    Calendar getFriendShipDate();
+    Long getId();
+
+    Person getFriend();
 
     Person getFriendship();
 
-    Person getFriend();
+    Calendar getFriendShipDate();
 }
