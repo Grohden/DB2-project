@@ -21,6 +21,10 @@ public class Person {
 
     protected Person() {}
 
+    public Person(Long id) {
+        this.id = id;
+    }
+
     public Person(String name, Calendar bornDate, String email, String bornCity, String actualCity) {
         this.name = name;
         this.bornDate = bornDate;

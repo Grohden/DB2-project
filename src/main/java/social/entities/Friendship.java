@@ -11,12 +11,10 @@ public class Friendship {
     private long id;
 
     @OneToOne
-    @JoinColumn(name = "friend_id")
 //    @NotNull
     private Person friend;
 
     @OneToOne
-    @JoinColumn(name = "friendship_id")
 //    @NotNull
     private Person friendship;
 
@@ -61,5 +59,13 @@ public class Friendship {
 
     public void setFriendShipDate(Calendar friendShipDate) {
         this.friendShipDate = friendShipDate;
+    }
+
+    public void setFriendId(Long id) {
+        this.friend = new Person(id);
+    }
+
+    public void setFriendshipId(Long id) {
+        this.friendship = new Person(id);
     }
 }
