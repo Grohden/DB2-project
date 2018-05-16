@@ -16,7 +16,7 @@ public interface PersonRepository extends CrudRepository<Person, Long> {
     @Query("SELECT DISTINCT p FROM Person p JOIN Friendship f on (:personid IN (f.friend.id, f.friendship.id) AND p.id IN (f.friend.id, f.friendship.id)) WHERE p.id <> :personid")
     List<Person> findFriends(@Param("personid") Long personId);
 
-    @Query("SELECT DISTINCT p FROM Person p LEFT JOIN Friendship f on (:personid NOT IN (f.friend.id, f.friendship.id) AND p.id NOT IN (f.friend.id, f.friendship.id)) WHERE p.id <> :personid")
+    @Query("SELECT p FROM Person p WHERE p.id NOT IN (SELECT DISTINCT p.id FROM Person p JOIN Friendship f on (:personid IN (f.friend.id, f.friendship.id) AND p.id IN (f.friend.id, f.friendship.id)))")
     List<Person> findNonFriends(@Param("personid") Long personId);
 
     Person findPersonById(@Param("personid") Long personId);
